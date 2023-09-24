@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "60331599221",
+    "project_id": "bubby-f4ce0",
+    "storage_bucket": "bubby-f4ce0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:60331599221:android:d6f0a9e964460e6d4b9f3c",
+        "android_client_info": {
+          "package_name": "com.android.bubbyApp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBSL9mIernQblrqIBOPfcwnHk3Br2yTdOo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
