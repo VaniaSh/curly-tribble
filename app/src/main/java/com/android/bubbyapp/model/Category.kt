@@ -1,11 +1,15 @@
-package com.android.bubbyapp.data.home
-
-import androidx.compose.ui.graphics.Color
+package com.android.bubbyapp.model
 
 data class Category(
+
 	val userId: String = "",
+
 	val title: String = "",
+
 	val description: String = "",
-	val totalSum: Float = 0f,
+
+	val totalAmount: Float = 0f,
+
 	val documentId: String = ""
+
 )

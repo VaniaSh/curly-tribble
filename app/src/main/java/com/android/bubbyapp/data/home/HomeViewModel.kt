@@ -1,6 +1,9 @@
 package com.android.bubbyapp.data.home
 
 import android.util.Log
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.AddBox
+import androidx.compose.material.icons.filled.Person
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.google.firebase.auth.FirebaseAuth
@@ -16,8 +19,21 @@ class HomeViewModel : ViewModel() {
 
 	val fullName: MutableLiveData<String> = MutableLiveData()
 
-	val navigationItemsList = listOf<NavigationItem>()
+	val navigationItemsList = listOf<NavigationItem>(
+		NavigationItem(
+			title = "Create New Category",
+			icon = Icons.Default.AddBox,
+			description = "Create New Category",
+			toNavigate = Screen.CategoryScreen
+		),
+		NavigationItem(
+			title = "Profile",
+			icon = Icons.Default.Person,
+			description = "Profile",
+			toNavigate = Screen.HomeScreen
+		),
 
+	)
 	val isUserLoggedIn:
 		MutableLiveData<Boolean> = MutableLiveData()
 
@@ -52,6 +68,7 @@ class HomeViewModel : ViewModel() {
 
 
 	val emailId: MutableLiveData<String> = MutableLiveData()
+	val uId: MutableLiveData<String> = MutableLiveData()
 
 	fun getUserData() {
 		FirebaseAuth.getInstance().currentUser?.also { user ->
@@ -60,6 +77,7 @@ class HomeViewModel : ViewModel() {
 			}
 		}
 		val userId = FirebaseAuth.getInstance().currentUser?.uid
+		uId.value = userId
 		val db = FirebaseFirestore.getInstance()
 		val userRef = db.collection("users").document(userId ?: "")
 		userRef.get()
@@ -74,6 +92,7 @@ class HomeViewModel : ViewModel() {
 			.addOnFailureListener { e ->
 				e.message?.let { Log.d("ERR", it) }
 			}
+
 
 	}
 

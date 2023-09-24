@@ -11,6 +11,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import com.android.bubbyapp.data.home.HomeViewModel
 import com.android.bubbyapp.navigation.PostOfficeAppRouter
 import com.android.bubbyapp.navigation.Screen
+import com.android.bubbyapp.screens.CategoryScreen
 import com.android.bubbyapp.screens.LoginScreen
 import com.android.bubbyapp.screens.SignUpScreen
 import com.android.bubbyapp.screens.TermsAndConditionsScreen
@@ -45,6 +46,9 @@ fun PostOfficeApp(homeViewModel: HomeViewModel = viewModel()) {
 
                 is Screen.HomeScreen -> {
                    HomeScreen()
+                }
+                is Screen.CategoryScreen -> {
+                   CategoryScreen()
                 }
             }
         }

@@ -53,7 +53,7 @@ import com.android.bubbyapp.theme.TextColor
 import com.android.bubbyapp.theme.WhiteColor
 import com.android.bubbyapp.theme.componentShapes
 import com.android.bubbyapp.data.NavigationItem
-import com.android.bubbyapp.data.home.Category
+import com.android.bubbyapp.model.Category
 
 @Composable
 fun NormalTextComponent(value: String) {
@@ -489,11 +489,26 @@ fun NavigationDrawerText(title: String, textUnit: TextUnit,color: Color) {
     )
 }
 
-
-
-
-
-
-
-
-
+@Composable
+fun CategoryCard(category: Category, color: Color) {
+    Card(
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(100.dp)
+            .padding(8.dp),
+        elevation = 4.dp,
+        backgroundColor = color,
+        shape = RoundedCornerShape(10.dp)
+    ) {
+        Box(
+            modifier = Modifier.fillMaxSize(),
+            contentAlignment = Alignment.Center
+        ) {
+            Column {
+                Text(text = category.title, fontSize = 18.sp)
+                Text(text = category.description, fontSize = 14.sp)
+                Text(text = "Total Amount: ${category.totalAmount}", fontSize = 14.sp)
+            }
+        }
+    }
+}
